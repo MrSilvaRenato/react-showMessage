@@ -32,8 +32,7 @@ function Popup() { // uppercase rendering function
         unmountOnExit
         onEnter={() => setShowButton(false)} // set show message button to false when open box. 
         onExited={() => setShowButton(true)} // set show message button to true when close box.
-        >
-        {console.log(onEnter)}          
+        >         
         <Alert
           // variant=""
           dismissible
