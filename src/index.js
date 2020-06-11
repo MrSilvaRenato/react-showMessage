@@ -5,38 +5,45 @@ import { CSSTransition } from 'react-transition-group';
 
 import './styles.css';
 
-function Example() {
-  const [showButton, setShowButton] = useState(true);
-  const [showMessage, setShowMessage] = useState(false);
+function Popup() { // uppercase rendering function
+  const [showButton, setShowButton] = useState(true); // variable showButton = setShowButton function to state true
+  const [showMessage, setShowMessage] = useState(false); // variable showMessage = setShowMessage function to state false
+  
   return (
-    <Container style={{ paddingTop: '2rem' }}>
+      
+      
+      <Container style={{ paddingTop: '2rem' }}>
+
+      
       {showButton && (
         <Button
-          onClick={() => setShowMessage(true)}
+          onClick={() => setShowMessage(true)} // onclick show message set show message to true
           size="lg"
+          id="btn"
         >
-          Show Message
+          Display Message
         </Button>
       )}
       <CSSTransition
         in={showMessage}
         timeout={300}
-        classNames="alert"
+        classNames="alert" // CSS transition classes. (enter|active|exit|exit-active)
+        className="box"
         unmountOnExit
-        onEnter={() => setShowButton(false)}
-        onExited={() => setShowButton(true)}
-      >
+        onEnter={() => setShowButton(false)} // set show message button to false when open box. 
+        onExited={() => setShowButton(true)} // set show message button to true when close box.
+        >
+          
         <Alert
-          variant="primary"
+          // variant=""
           dismissible
           onClose={() => setShowMessage(false)}
         >
           <Alert.Heading>
-            Animated alert message
+            React alert message
           </Alert.Heading>
           <p>
-            This alert message is being transitioned in and
-            out of the DOM.
+            Transitionated in and out alert message.
           </p>
           <Button onClick={() => setShowMessage(false)}>
             Close
@@ -48,6 +55,6 @@ function Example() {
 }
 
 ReactDOM.render(
-  <Example />,
+  <Popup />,
   document.getElementById('root')
 );
